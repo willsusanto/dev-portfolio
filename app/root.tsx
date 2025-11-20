@@ -10,6 +10,13 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Dev Portfolio" },
+    { name: "description", content: "Dev Portfolio Website!" },
+  ];
+}
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -33,7 +40,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <main className="max-w-6xl mx-auto px-6 my-8">
+          {children}
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>
