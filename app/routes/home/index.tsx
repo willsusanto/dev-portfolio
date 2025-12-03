@@ -16,8 +16,6 @@ export default function Home() {
   // } else {
   //   console.log(`Client renders at: ${now}`);
   // }
-  
-  return <>
-    <Hero name={"William"}></Hero>
-  </>
+
+  return <>This is homepage</>;
 }
