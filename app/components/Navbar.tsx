@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { FaHamburger, FaLaptopCode } from "react-icons/fa";
+import { FaBars, FaLaptopCode } from "react-icons/fa";
 import NavItemDesktop from "./NavItemDesktop";
 import { useState } from "react";
 import { FaX } from "react-icons/fa6";
@@ -50,7 +50,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-6">
           <div className="space-x-4 text-sm text-gray-300">
             {navItems.map((item) => (
-              <NavItemDesktop to={item.to}>{item.label}</NavItemDesktop>
+              <NavItemDesktop key={item.to} to={item.to}>{item.label}</NavItemDesktop>
             ))}
           </div>
         </div>
@@ -60,14 +60,14 @@ const Navbar = () => {
           onClick={() => handleHamburgerClick()}
         >
           {isHamburgerOpen && <FaX />}
-          {!isHamburgerOpen && <FaHamburger />}
+          {!isHamburgerOpen && <FaBars />}
         </div>
       </div>
 
       {isHamburgerOpen && (
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-start flex-col gap-2">
           {navItems.map((item) => (
-            <NavItemMobile to={item.to}>{item.label}</NavItemMobile>
+            <NavItemMobile key={item.to} handleClick={handleHamburgerClick} to={item.to}>{item.label}</NavItemMobile>
           ))}
         </div>
       )}
